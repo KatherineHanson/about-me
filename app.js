@@ -46,19 +46,19 @@ if (nerd.toLowerCase() === 'y' || nerd.toLowerCase() === 'yes') {
 }
 
 var cooking = prompt('Is Katherine bad at cooking?');
-if (cooking.toLowerCase() === 'y' || cooking.toLowerCase() === 'yes') {
-  alert('Not quite! Katherine enjoys experimenting with cooking and code alike, and recently learned to make a mean blood orange marmalade.');
-  console.log('When asked whether Katherine is bad at cooking, the user incorrectly did not guess no.');
-} else {
+if (cooking.toLowerCase() === 'n' || cooking.toLowerCase() === 'no') {
   alert('Correct! Katherine enjoys experimenting with cooking and code alike, and recently learned to make a mean blood orange marmalade.');
   console.log('When asked whether Katherine is bad at cooking, the user correctly guessed no.');
+} else {
+  alert('Not quite! Katherine enjoys experimenting with cooking and code alike, and recently learned to make a mean blood orange marmalade.');
+  console.log('When asked whether Katherine is bad at cooking, the user incorrectly did not guess no.');
 }
 
 var rainy = prompt('Is Seattle rainy in the summer?');
-if (rainy.toLowerCase() === 'y' || rainy.toLowerCase() === 'yes') {
-  alert('Incorrect! Seattle summers are amazingggggg. Supposedly. As a humble alert, I cannot go outside and see.');
-  console.log('When asked whether Seattle is rainy in the summer, the user incorrectly did not guess no.');
-} else {
+if (rainy.toLowerCase() === 'n' || rainy.toLowerCase() === 'no') {
   alert('Correct! Supposedly. As a humble alert, I cannot go outside and see.');
   console.log('When asked whether Seattle is rainy in the summer, the user correctly guessed no.');
+} else {
+  alert('Incorrect! Seattle summers are amazingggggg. Supposedly. As a humble alert, I cannot go outside and see.');
+  console.log('When asked whether Seattle is rainy in the summer, the user incorrectly did not guess no.');
 }
