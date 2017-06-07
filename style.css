@@ -1,0 +1,31 @@
+body {
+  background-color: #f5f7f9;
+}
+
+h1 {
+  font-family: PT Serif,serif;
+  font-size: 56px;
+  color: black;
+  margin-left: 50px;
+  margin-top: 75px;
+}
+
+h4 {
+  margin-top: 75px;
+  font-size: 24px;
+  margin-left: 300px;
+}
+
+ul {
+  font-size: 24px;
+  margin-left: 300px;
+}
+
+img {
+  border-radius: 50%;
+  width: 225px;
+  height: 225px;
+  float: left;
+  margin-left: 50px;
+  margin-right: 50px;
+}
