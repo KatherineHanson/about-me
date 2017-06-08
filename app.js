@@ -20,27 +20,30 @@ var greet = document.getElementById('greetingH1');
 greet.textContent = greeting;
 
 // Customize guessing game's greeting for user
-var userName = prompt('Here there be dragons. Ye shall enchant them asleep by answering seven questions. What is your name, traveler?');
-if (userName === '') {
-  userName = 'friend';
-  alert('I respect your desire to remain incognito in these lands, ' + userName + '. Let us begin.');
-} else {
-  alert('Excellent, ' + userName + ', we shall begin.');
+function greeting() {
+  var userName = prompt('Here there be dragons. Ye shall enchant them asleep by answering seven questions. What is your name, traveler?');
+  if (userName === '') {
+    userName = 'friend';
+    alert('I respect your desire to remain incognito in these lands, ' + userName + '. Let us begin.');
+  } else {
+    alert('Excellent, ' + userName + ', we shall begin.');
+  }
 }
-
 // Ask user seven yes or no questions about Katherine, with a mix of yes or no answers
 // Count and output number of correct answers
 var correct = [];
 
 // Question 1
-var states = prompt('Has Katherine coded in more than one state?');
-if (states.toLowerCase() === 'y' || states.toLowerCase() === 'yes') {
-  alert('Correct! Katherine has coded in Washington where she lives, and Florida where her hometown is.');
-  console.log('When asked whether Katherine has coded in more than one state, the user correctly guessed yes.');
-  correct.push('Correct!');
-} else {
-  alert('Not quite, but good guess! Katherine has coded in Washington where she lives, and Florida where her hometown is.');
-  console.log('When asked whether Katherine has coded in more than one state, the user incorrectly did not guess yes.');
+function question1() {
+  var states = prompt('Has Katherine coded in more than one state?');
+  if (states.toLowerCase() === 'y' || states.toLowerCase() === 'yes') {
+    alert('Correct! Katherine has coded in Washington where she lives, and Florida where her hometown is.');
+    console.log('When asked whether Katherine has coded in more than one state, the user correctly guessed yes.');
+    correct.push('Correct!');
+  } else {
+    alert('Not quite, but good guess! Katherine has coded in Washington where she lives, and Florida where her hometown is.');
+    console.log('When asked whether Katherine has coded in more than one state, the user incorrectly did not guess yes.');
+  }
 }
 
 console.log('Answers correct so far: ' + correct.length);
@@ -163,3 +166,6 @@ if (finalAnswerCount === 7) {
 else {
   alert('You got ' + finalAnswerCount + ' out of 7. Not perfect, ' + userName + ', but the dragons here are actually pretty chill. You may proceed.');
 }
+
+// Call functions
+greeting();
