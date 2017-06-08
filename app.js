@@ -1,6 +1,6 @@
-// 'use strict';
+'use strict';
 
-// Customize greeting to user
+// Customize webpage's greeting for user
 var today = new Date();
 var hourNow = today.getHours();
 var greeting = 'greeting';
@@ -19,14 +19,20 @@ if (hourNow > 18) {
 var greet = document.getElementById('greetingH1');
 greet.textContent = greeting;
 
-// Get user's name
-var userName = prompt('Here there be dragons. Ye shall slay them by answering seven questions. What is your name, traveler?');
-var response = alert('Excellent, ' + userName + ', we shall begin.');
+// Customize guessing game's greeting for user
+var userName = prompt('Here there be dragons. Ye shall enchant them asleep by answering seven questions. What is your name, traveler?');
+if (userName === '') {
+  userName = 'friend';
+  alert('I respect your desire to remain incognito in these lands, ' + userName + '. Let us begin.');
+} else {
+  alert('Excellent, ' + userName + ', we shall begin.');
+}
 
 // Ask user seven yes or no questions about Katherine, with a mix of yes or no answers
 // Count and output number of correct answers
 var correct = [];
 
+// Question 1
 var states = prompt('Has Katherine coded in more than one state?');
 if (states.toLowerCase() === 'y' || states.toLowerCase() === 'yes') {
   alert('Correct! Katherine has coded in Washington where she lives, and Florida where her hometown is.');
@@ -39,6 +45,7 @@ if (states.toLowerCase() === 'y' || states.toLowerCase() === 'yes') {
 
 console.log('Answers correct so far: ' + correct.length);
 
+// Question 2
 var previousJob = prompt('Was Katherine in the tech industry she decided to become a programmer?');
 if (previousJob.toLowerCase() === 'y' || previousJob.toLowerCase() === 'yes') {
   alert('Correct! Katherine was once a product manager at a small Seattle-area startup. While there, she discovered an interest in programming.');
@@ -51,6 +58,7 @@ if (previousJob.toLowerCase() === 'y' || previousJob.toLowerCase() === 'yes') {
 
 console.log('Answers correct so far: ' + correct.length);
 
+// Question 3
 var nerd = prompt('Is Katherine a big nerd for anime and manga?');
 if (nerd.toLowerCase() === 'y' || nerd.toLowerCase() === 'yes') {
   alert('Correct! Katherine has not missed a Sakura-Con since moving to Seattle in January 2014.');
@@ -63,6 +71,7 @@ if (nerd.toLowerCase() === 'y' || nerd.toLowerCase() === 'yes') {
 
 console.log('Answers correct so far: ' + correct.length);
 
+// Question 4
 var cooking = prompt('Is Katherine bad at cooking?');
 if (cooking.toLowerCase() === 'n' || cooking.toLowerCase() === 'no') {
   alert('Correct! Katherine enjoys experimenting with cooking and code alike, and recently learned to make a mean blood orange marmalade.');
@@ -75,6 +84,7 @@ if (cooking.toLowerCase() === 'n' || cooking.toLowerCase() === 'no') {
 
 console.log('Answers correct so far: ' + correct.length);
 
+// Question 5
 var rainy = prompt('Is Seattle rainy in the summer?');
 if (rainy.toLowerCase() === 'n' || rainy.toLowerCase() === 'no') {
   alert('Correct! Supposedly. As a humble alert, I cannot go outside and see.');
@@ -87,6 +97,7 @@ if (rainy.toLowerCase() === 'n' || rainy.toLowerCase() === 'no') {
 
 console.log('Answers correct so far: ' + correct.length);
 
+// Question 6
 // Take number input
 // Give user four opportunities to get the right answer
 // When user answers too high or low, give 'Too high!' or 'Too low!' message
@@ -99,7 +110,7 @@ for (var i = 0; i < 4; i++) {
     console.log('When asked what the program is thinking, the user correctly guessed ' + guessedNumber + '.');
     correct.push('Correct!');
     i += 4;
-  } else if (guessedNumber === '') {
+  } else if (isNaN(guessedNumber)) {
     alert('You must enter a number!');
     console.log('When asked what the program is thinking, the user entered nothing.');
   }
@@ -114,8 +125,10 @@ for (var i = 0; i < 4; i++) {
 
 console.log('Answers correct so far: ' + correct.length);
 
+// Question 7
 // Take user input
 // Give user six opportunities to get the right answer out of multiple possibilites
+// If they give a correct answer or run out of guesses, give them all of the correct answers
 var nerdSeries = ['Psycho-Pass', 'Revolutionary Girl Utena', 'Star Trek: Deep Space Nine', 'Psycho Pass', 'Utena', 'Star Trek Deep Space Nine', 'Star Trek: DS9', 'Star Trek DS9', 'DS9'];
 var nerdSeriesCount = nerdSeries.length;
 var i = 0;
@@ -126,7 +139,6 @@ while (i < 6) {
       alert('Correct! Katherine enjoyed watching ' + guessedSeries + '. The correct answers are: ' + nerdSeries[0] + ', ' + nerdSeries[1] + ', and ' + nerdSeries[2] + '.');
       console.log('When asked to name a favorite geeky TV show of Katherine\'s, the user correctly guessed ' + guessedSeries + '.');
       correct.push('Correct!');
-      x += nerdSeriesCount;
       i += 6;
     }
   }
@@ -135,19 +147,19 @@ while (i < 6) {
     console.log('When asked to name a favorite geeky TV show of Katherine\'s, the user incorrectly guessed ' + guessedSeries + '.');
     i++;
   }
-  if (i === 0) {
-    alert('Youre out of guesses!');
+  if (i === 6) {
+    alert('You\'re out of guesses! The correct answers are: ' + nerdSeries[0] + ', ' + nerdSeries[1] + ', and ' + nerdSeries[2] + '.');
     console.log('The user ran out of guesses before they could guess a favorite geeky TV show of Katherine\'s.');
-    i++;
   }
 }
 
 console.log('Answers correct so far: ' + correct.length);
 
+// Output number of answers user got correct
 var finalAnswerCount = correct.length;
 if (finalAnswerCount === 7) {
-  alert('You got ' + finalAnswerCount + ' out of 7, a perfect score! Here\'s a virtual high-five, O dragon slayer.');
+  alert('You got ' + finalAnswerCount + ' out of 7, ' + userName + ', a perfect score! Here\'s a virtual high-five, O dragon slayer.');
 }
 else {
-  alert('You got ' + finalAnswerCount + ' out of 7. Not perfect, but the dragons here are actually pretty chill. You may proceed.');
+  alert('You got ' + finalAnswerCount + ' out of 7. Not perfect, ' + userName + ', but the dragons here are actually pretty chill. You may proceed.');
 }
