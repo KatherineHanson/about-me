@@ -20,8 +20,8 @@ var greet = document.getElementById('greetingH1');
 greet.textContent = greeting;
 
 // Customize guessing game's greeting for user
-function greeting() {
-  var userName = prompt('Here there be dragons. Ye shall enchant them asleep by answering seven questions. What is your name, traveler?');
+var userName = prompt('Here there be dragons. Ye shall enchant them asleep by answering seven questions. What is your name, traveler?');
+function userGreeting() {
   if (userName === '') {
     userName = 'friend';
     alert('I respect your desire to remain incognito in these lands, ' + userName + '. Let us begin.');
@@ -29,6 +29,7 @@ function greeting() {
     alert('Excellent, ' + userName + ', we shall begin.');
   }
 }
+
 // Ask user seven yes or no questions about Katherine, with a mix of yes or no answers
 // Count and output number of correct answers
 var correct = [];
@@ -142,40 +143,52 @@ console.log('Answers correct so far: ' + correct.length);
 // Take user input
 // Give user six opportunities to get the right answer out of multiple possibilites
 // If they give a correct answer or run out of guesses, give them all of the correct answers
-var nerdSeries = ['Psycho-Pass', 'Revolutionary Girl Utena', 'Star Trek: Deep Space Nine', 'Psycho Pass', 'Utena', 'Star Trek Deep Space Nine', 'Star Trek: DS9', 'Star Trek DS9', 'DS9'];
-var nerdSeriesCount = nerdSeries.length;
-var i = 0;
-while (i < 6) {
-  var guessedSeries = prompt('Name a favorite geeky TV show of Katherine\'s. You have six tries.');
-  for (var x = 0; x < nerdSeriesCount; x++) {
-    if (guessedSeries.toLowerCase() === nerdSeries[x].toLowerCase()) {
-      alert('Correct! Katherine enjoyed watching ' + guessedSeries + '. The correct answers are: ' + nerdSeries[0] + ', ' + nerdSeries[1] + ', and ' + nerdSeries[2] + '.');
-      console.log('When asked to name a favorite geeky TV show of Katherine\'s, the user correctly guessed ' + guessedSeries + '.');
-      correct.push('Correct!');
-      i += 6;
+function question7() {
+  var nerdSeries = ['Psycho-Pass', 'Revolutionary Girl Utena', 'Star Trek: Deep Space Nine', 'Psycho Pass', 'Utena', 'Star Trek Deep Space Nine', 'Star Trek: DS9', 'Star Trek DS9', 'DS9'];
+  var nerdSeriesCount = nerdSeries.length;
+  var i = 0;
+  while (i < 6) {
+    var guessedSeries = prompt('Name a favorite geeky TV show of Katherine\'s. You have six tries.');
+    for (var x = 0; x < nerdSeriesCount; x++) {
+      if (guessedSeries.toLowerCase() === nerdSeries[x].toLowerCase()) {
+        alert('Correct! Katherine enjoyed watching ' + guessedSeries + '. The correct answers are: ' + nerdSeries[0] + ', ' + nerdSeries[1] + ', and ' + nerdSeries[2] + '.');
+        console.log('When asked to name a favorite geeky TV show of Katherine\'s, the user correctly guessed ' + guessedSeries + '.');
+        correct.push('Correct!');
+        i += 6;
+      }
     }
-  }
-  if (i < 6) {
-    alert('Not according to my list!');
-    console.log('When asked to name a favorite geeky TV show of Katherine\'s, the user incorrectly guessed ' + guessedSeries + '.');
-    i++;
-  }
-  if (i === 6) {
-    alert('You\'re out of guesses! The correct answers are: ' + nerdSeries[0] + ', ' + nerdSeries[1] + ', and ' + nerdSeries[2] + '.');
-    console.log('The user ran out of guesses before they could guess a favorite geeky TV show of Katherine\'s.');
+    if (i < 6) {
+      alert('Not according to my list!');
+      console.log('When asked to name a favorite geeky TV show of Katherine\'s, the user incorrectly guessed ' + guessedSeries + '.');
+      i++;
+    }
+    if (i === 6) {
+      alert('You\'re out of guesses! The correct answers are: ' + nerdSeries[0] + ', ' + nerdSeries[1] + ', and ' + nerdSeries[2] + '.');
+      console.log('The user ran out of guesses before they could guess a favorite geeky TV show of Katherine\'s.');
+    }
   }
 }
 
 console.log('Answers correct so far: ' + correct.length);
 
 // Output number of answers user got correct
-var finalAnswerCount = correct.length;
-if (finalAnswerCount === 7) {
-  alert('You got ' + finalAnswerCount + ' out of 7, ' + userName + ', a perfect score! Here\'s a virtual high-five, O dragon slayer.');
-}
-else {
-  alert('You got ' + finalAnswerCount + ' out of 7. Not perfect, ' + userName + ', but the dragons here are actually pretty chill. You may proceed.');
+function finalScore() {
+  var finalAnswerCount = correct.length;
+  if (finalAnswerCount === 7) {
+    alert('You got ' + finalAnswerCount + ' out of 7, ' + userName + ', a perfect score! Here\'s a virtual high-five, O dragon slayer.');
+  }
+  else {
+    alert('You got ' + finalAnswerCount + ' out of 7. Not perfect, ' + userName + ', but the dragons here are actually pretty chill. You may proceed.');
+  }
 }
 
 // Call functions
-greeting();
+userGreeting();
+question1();
+question2();
+question3();
+question4();
+question5();
+question6();
+question7();
+finalScore();
