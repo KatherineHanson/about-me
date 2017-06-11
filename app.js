@@ -162,7 +162,7 @@ function question7() {
       console.log('When asked to name a favorite geeky TV show of Katherine\'s, the user incorrectly guessed ' + guessedSeries + '.');
       i++;
     }
-    if (i === 6) {
+    if (i === 7) {
       alert('You\'re out of guesses! The correct answers are: ' + nerdSeries[0] + ', ' + nerdSeries[1] + ', and ' + nerdSeries[2] + '.');
       console.log('The user ran out of guesses before they could guess a favorite geeky TV show of Katherine\'s.');
     }
