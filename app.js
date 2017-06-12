@@ -16,7 +16,7 @@ if (hourNow > 18) {
   console.log('ERROR: Something went wrong!');
 }
 
-var greet = document.getElementById('greetingH1');
+var greet = document.getElementById('greetingSpan');
 greet.textContent = greeting;
 
 // Customize guessing game's greeting for user
@@ -114,7 +114,7 @@ console.log('Answers correct so far: ' + correct.length);
 // Give user four opportunities to get the right answer
 // When user answers too high or low, give 'Too high!' or 'Too low!' message
 function question6() {
-  var correctNumber = Math.floor((Math.random() * 10) + 1);
+  var correctNumber = Math.floor(Math.random() * (10 - 1 + 1)) + 1;;
   console.log('The answer is ' + correctNumber + '.');
   for (var i = 0; i < 4; i++) {
     var guessedNumber = parseInt(prompt('Which number am I thinking of? You have four tries.'));
